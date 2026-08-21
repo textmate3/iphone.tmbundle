@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require "#{ENV['TM_SUPPORT_PATH']}/lib/osx/plist"
+require "#{ENV['TM_SUPPORT_PATH']}/private/plist"
 require 'pp'
 
 class GenerateIPhoneSyntax
@@ -20,7 +20,7 @@ class GenerateIPhoneSyntax
     @replace_with_list = []
     file = "#{ENV['TM_BUNDLE_PATH']}/../Objective-C.tmbundle/Syntaxes/Objective-C.tmLanguage"
     io = open(file)
-    res = OSX::PropertyList::load(io.read)
+    res = Plist.load(io.read)
     #pp res
 
     # delete
